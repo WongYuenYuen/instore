@@ -39,7 +39,6 @@
     <div class="copy-right ">
       Copyright &copy; 电声营销 版权所有
     </div>
-    <!-- <div class="preloader-indicator-modal "><span class="preloader preloader-white "></span></div> -->
   </div>
 </template>
 <script>
@@ -52,7 +51,7 @@ export default {
       cityid: "guangzhou",
       bannerSwiperOption: {
         autoplay: {
-        delay: 3000
+          delay: 3000
         },
         margin: 0,
         pagination: {
@@ -64,39 +63,38 @@ export default {
       hotList: [],
     }
   },
-  mounted: function(){
+  mounted: function() {
     this.getBrandList();
     this.getHotList();
     this.getBannerList();
   },
-  methods:{
-    getBrandList(){
+  methods: {
+    /**获取品牌列表**/
+    getBrandList() {
       let param = {
         cityid: this.cityid
       };
-      api.getBrandList(param).then(data=>{
+      api.getBrandList(param).then(data => {
         this.brandList = data.data.list;
-      }, err=>{
-      });
+      }, err => {});
     },
-
-    getHotList(){
+    /**获取商店列表**/
+    getHotList() {
       let param = {
         cityid: this.cityid
       };
-      api.getHotList(param).then(data=>{
+      api.getHotList(param).then(data => {
         this.hotList = data.data.list;
-      }, err=>{
-      });
+      }, err => {});
     },
-    getBannerList(){
-       let param = {
+    /**获取广告图列表**/
+    getBannerList() {
+      let param = {
         cityid: this.cityid
       };
-      api.getBannerList(param).then(data=>{
+      api.getBannerList(param).then(data => {
         this.bannerSwiperSlides = data.data.list;
-      }, err=>{
-      });
+      }, err => {});
     }
   }
 }
