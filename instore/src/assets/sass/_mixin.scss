@@ -1,0 +1,76 @@
+$pageWidth: 750px !default;
+$baseFontSize: 75 !default;
+@function rem($num) {
+  @return $num / $baseFontSize * 1rem;
+}
+
+@mixin dprFontFix($fontSize2x) {
+  // Psd尺寸750
+  $fontSize: $fontSize2x/2;
+  @if (unitless($fontSize)) {
+    font-size: $fontSize + 0px;
+    [data-dpr="2"] & {
+      font-size: $fontSize * 2 + 0px;
+    }
+    [data-dpr="3"] & {
+      font-size: $fontSize * 3 + 0px;
+    }
+  }
+  @else {
+    font-size: $fontSize;
+    [data-dpr="2"] & {
+      font-size: $fontSize * 2;
+    }
+    [data-dpr="3"] & {
+      font-size: $fontSize * 3;
+    }
+  }
+}
+
+%fl {
+  float: left;
+}
+
+%fr {
+  float: right;
+}
+
+%full_bg {
+  background: transparent 0 0 no-repeat;
+  background-size: 100% auto;
+}
+
+%text_overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin base64bg () {
+  background: transparent 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+%base64bg {
+  @include base64bg;
+}
+
+%coverBackground {
+  background: transparent center center no-repeat;
+  background-size: cover;
+}
+
+@mixin clearfix () {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+%clearfix {
+  @include clearfix();
+}
