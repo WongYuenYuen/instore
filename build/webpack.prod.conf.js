@@ -59,20 +59,20 @@ const webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: config.build.index,
-      template: 'index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    }),
+    //new HtmlWebpackPlugin({
+    //  filename: config.build.index,
+    //  template: 'index.html',
+    //  inject: true,
+    //  minify: {
+    //    removeComments: true,
+    //    collapseWhitespace: true,
+    //    removeAttributeQuotes: true
+    //    // more options:
+    //   // https://github.com/kangax/html-minifier#options-quick-reference
+    //  },
+    //  // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+    //  chunksSortMode: 'dependency'
+    //}),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
@@ -80,7 +80,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks (module) {
+      minChunks(module) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
@@ -141,4 +141,16 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
+var pages = utils.getEntries('./src/html/**/*.html')
+for (var page in pages) {
+  var conf = {
+    filename: '../dist/html/' + page + '.html',
+    template: pages[page], 
+    inject: true,
+    chunks: Object.keys(pages).filter(item => {
+      return (item == page)
+    })
+  }
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+}
 module.exports = webpackConfig

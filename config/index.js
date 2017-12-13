@@ -49,13 +49,14 @@ module.exports = {
   },
 
   build: {
+    env: require('./prod.env'),
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    // index: path.resolve(__dirname, '../dist/html/a.html'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsSubDirectory: 'assets',
+    assetsPublicPath: '//m.instore.com.cn/',
 
     /**
      * Source Maps

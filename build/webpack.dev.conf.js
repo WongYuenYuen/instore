@@ -47,16 +47,30 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: './html/index.html',
-      template: './html/index.html',
-      inject: true
-    }),
+    //new HtmlWebpackPlugin({
+    //  filename: './html/index.html',
+    //  template: './html/index.html',
+    //  inject: true
+    //}),
     new webpack.ProvidePlugin({//zepto重命名
       $: 'zepto'
     })
   ]
 })
+var pages = utils.getEntries('./src/html/**/*.html')
+for (var page in pages) {
+  // 配置生成的html文件，定义路径等
+  var conf = {
+    filename: page + '.html',
+    template: pages[page], // 模板路径
+    inject: true,
+    chunks: Object.keys(pages).filter(item => {
+      return (item == page);
+    })
+  }
+  // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
+  devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+}
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
@@ -78,7 +92,6 @@ module.exports = new Promise((resolve, reject) => {
           utils.createNotifierCallback() :
           undefined
       }))
-
       resolve(devWebpackConfig)
     }
   })

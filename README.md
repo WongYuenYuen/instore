@@ -37,3 +37,33 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+目录结构：
+├─build
+├─config
+├─dist
+│  ├─assets
+│  │  ├─css
+│  │  └─js
+│  └─html
+├─src
+│  ├─assets
+│  │  ├─images
+│  │  ├─js
+│  │  │  ├─common
+│  │  │  ├─im
+│  │  │  │  └─.svn
+│  │  │  │      └─text-base
+│  │  │  └─zepto
+│  │  │      └─.svn
+│  │  │          └─text-base
+│  │  └─sass
+│  ├─components
+│  ├─html
+│  ├─pages
+│  ├─router
+│  └─views
+│      └─shop
+│          └─img
+└─static
