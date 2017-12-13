@@ -1,11 +1,12 @@
-# 环境：
-node -v 8.9.3
-npm -v 5.5.1
+###### 环境：
+node -v 6.12.2
+npm -v 5.6.0
 
-# 直接安装node可以到官网直接下载包安装：
+###### 直接安装node可以到官网直接下载包安装：
 https://nodejs.org/en/
+###### 安装node后，运行npm update即可更新npm
 
-# 如果您有多个node版本，建议使用nvm来管理node的版本，保持一个项目里的node和npm版本一致
+###### 如果您有多个node版本，建议使用nvm来管理node的版本，保持一个项目里的node和npm版本一致
 安装nvm：
 curl -L -o- [http://build.sankuai.com/nvm/install](http://build.sankuai.com/nvm/install) | bash
 安装node及npm
@@ -40,30 +41,26 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 目录结构：
-├─build
-├─config
-├─dist
-│  ├─assets
-│  │  ├─css
-│  │  └─js
-│  └─html
-├─src
-│  ├─assets
-│  │  ├─images
-│  │  ├─js
-│  │  │  ├─common
-│  │  │  ├─im
-│  │  │  │  └─.svn
-│  │  │  │      └─text-base
-│  │  │  └─zepto
-│  │  │      └─.svn
-│  │  │          └─text-base
-│  │  └─sass
-│  ├─components
-│  ├─html
-│  ├─pages
-│  ├─router
-│  └─views
-│      └─shop
-│          └─img
-└─static
+├─build  //项目的webpack配置文件
+├─config  //项目的文件路径配置文件
+├─dist  //打包生成
+│  ├─assets  
+│  │  ├─css  
+│  │  └─js  
+│  └─html  
+└─src  //开发的源代码
+   ├─assets  //静态资源存放，比如引入一些库的js和css，公用的图片
+   │  ├─images  
+   │  ├─js  
+   │  │  ├─common  //一些公用方法函数
+   │  │  ├─im  
+   │  │  └─zepto  
+   │  └─sass  //基础的sass方法之类
+   ├─components  //公用组件，比如返回的导航条，结构跟views一致，一个组件一个文件夹
+   ├─html  //html的入口文件
+   ├─pages  //html对应的js入口文件，注意！！入口文件要和html文件名一致！！
+   ├─router  //路由配置
+   └─views //作为一个路由页面层级的组件
+       └─shop  //一个组建一个文件夹，组建样式、图片等都放在这下面
+           └─img
+
