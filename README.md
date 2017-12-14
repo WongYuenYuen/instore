@@ -53,20 +53,20 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 │  │  └─js  <br>
 │  └─html  <br>
 └─src        开发的源代码<br>
-   ├─assets        静态资源存放，比如引入一些库的js和css，公用的图片<br>
-   │  ├─images  <br>
-   │  ├─js  <br>
-   │  │  ├─common        一些公用方法函数<br>
-   │  │  ├─im  <br>
-   │  │  └─zepto  <br>
-   │  └─sass        基础的sass方法之类<br>
-   ├─components        公用组件，比如返回的导航条，结构跟views一致，一个组件一个文件夹<br>
-   ├─html        html的入口文件<br>
-   │   └─index.html<br>
-   ├─pages        html对应的js入口文件，注意！！入口文件要和html文件名一致！！<br>
-   │   └─index.js<br>
-   ├─router        路由配置<br>
-   └─views       作为一个路由页面层级的组件<br>
-     └─shop        一个组建一个文件夹，组建样式、图片等都放在这下面<br>
-         └─img<br>
+&emsp;&emsp;&emsp;├─assets        静态资源存放，比如引入一些库的js和css，公用的图片<br>
+&emsp;&emsp;&emsp;│  ├─images  <br>
+&emsp;&emsp;&emsp;│  ├─js  <br>
+&emsp;&emsp;&emsp;│  │  ├─common        一些公用方法函数<br>
+&emsp;&emsp;&emsp;│  │  ├─im  <br>
+&emsp;&emsp;&emsp;│  │  └─zepto  <br>
+&emsp;&emsp;&emsp;│  └─sass        基础的sass方法之类<br>
+&emsp;&emsp;&emsp;├─components        公用组件，比如返回的导航条，结构跟views一致，一个组件一个文件夹<br>
+&emsp;&emsp;&emsp;├─html        html的入口文件<br>
+&emsp;&emsp;&emsp;│   └─index.html<br>
+&emsp;&emsp;&emsp;├─pages        html对应的js入口文件，注意！！入口文件要和html文件名一致！！<br>
+&emsp;&emsp;&emsp;│   └─index.js<br>
+&emsp;&emsp;&emsp;├─router        路由配置<br>
+&emsp;&emsp;&emsp;└─views       作为一个路由页面层级的组件<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─shop        一个组建一个文件夹，组建样式、图片等都放在这下面<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─img<br>
 
