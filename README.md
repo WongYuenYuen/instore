@@ -62,9 +62,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
    │  └─sass        基础的sass方法之类<br>
    ├─components        公用组件，比如返回的导航条，结构跟views一致，一个组件一个文件夹<br>
    ├─html        html的入口文件<br>
+   │   └─index.html<br>
    ├─pages        html对应的js入口文件，注意！！入口文件要和html文件名一致！！<br>
+   │   └─index.js<br>
    ├─router        路由配置<br>
    └─views       作为一个路由页面层级的组件<br>
-       └─shop        一个组建一个文件夹，组建样式、图片等都放在这下面<br>
-           └─img<br>
+     └─shop        一个组建一个文件夹，组建样式、图片等都放在这下面<br>
+         └─img<br>
 
