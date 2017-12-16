@@ -3,7 +3,7 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
-var glob = require('glob');
+const glob = require('glob');
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -69,12 +69,13 @@ exports.cssLoaders = function (options) {
 exports.getEntries = function (globPath) {
   var entries = {}
   glob.sync(globPath).forEach(function (entry) {
-    var basename = path.basename(entry, path.extname(entry), 'router.js') 
+    var basename = path.basename(entry, path.extname(entry), 'router.js')
     entries[basename] = entry
   });
 
   return entries;
 }
+
 
 // Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {

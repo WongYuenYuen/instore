@@ -1,5 +1,6 @@
 'use strict'
 const utils = require('./utils')
+const sprit = require('./sprit')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
@@ -7,7 +8,6 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -46,17 +46,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
-    //new HtmlWebpackPlugin({
-    //  filename: './html/index.html',
-    //  template: './html/index.html',
-    //  inject: true
-    //}),
-    new webpack.ProvidePlugin({//zepto重命名
+    new webpack.ProvidePlugin({//zepto
       $: 'zepto'
     })
   ]
 })
+
+//配置多页面，js和css通过inject到页面
 var pages = utils.getEntries('./src/html/**/*.html')
 for (var page in pages) {
   // 配置生成的html文件，定义路径等
@@ -71,6 +67,9 @@ for (var page in pages) {
   // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
   devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
 }
+
+//引入雪碧图
+sprit.spriteConfig(devWebpackConfig);
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port

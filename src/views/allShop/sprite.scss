@@ -1,0 +1,25 @@
+%base_allShop{
+    background: url(./img/sprite.png) 0 0 no-repeat;
+    background-size: (103rem/75) (89rem/75);
+  }
+@mixin allShop_arrow-down {
+  @extend %base_allShop;
+  width: rem(16 + 4);
+  height: rem(10 + 4);
+  background-position: ((-35 + 2) * 1rem/75) ((-56 + 2) * 1rem/75);
+}@mixin allShop_center {
+  @extend %base_allShop;
+  width: rem(47 + 4);
+  height: rem(47 + 4);
+  background-position: ((-56 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin allShop_fire {
+  @extend %base_allShop;
+  width: rem(52 + 4);
+  height: rem(52 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin allShop_search {
+  @extend %base_allShop;
+  width: rem(31 + 4);
+  height: rem(33 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((-56 + 2) * 1rem/75);
+}
