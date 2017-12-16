@@ -5,14 +5,15 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app'
+  }
 </script>
 
-<style lang="scss" scoped>
-@import 'assets/sass/_base.scss';
-html{
-  background: red;
-}
+
+<style lang="scss">
+  @import 'assets/sass/_base.scss';
+  body{
+    background: #f5f5f5;
+  }
 </style>
