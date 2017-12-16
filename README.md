@@ -70,3 +70,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─shop        一个组建一个文件夹，组建样式、图片等都放在这下面<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─img<br>
 
+设计稿资源：
+http://dev.instore.com.cn:9000/svn/h5ui/
+h5ui
+live4Instore
