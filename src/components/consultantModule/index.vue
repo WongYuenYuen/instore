@@ -3,32 +3,88 @@
     <div class="list">
       <div class="item">
         <div class="avatar">
-          <div class="real-avatar"></div>
+          <div class="real-avatar" style="backgroundImage:url(https://ebcnews.s3.amazonaws.com/images/2017/10/16/15081174458687MFnz.jpg)"></div>
         </div>
         <div class="msg">
-          <p class="name">许志强强强<span class="status">直播中</span></p>
-          <p class="starts"><span class="txt">评价</span> <i class="start"></i></p>
+          <div class="name-box">
+            <p class="name">许志强强强许志强强强许志强强强
+            </p>
+            <span class="status">直播中</span>
+          </div>
+          <p class="starts">
+            <span class="txt">评价</span>
+            <i class="start act"></i>
+            <i class="start"></i>
+            <i class="start"></i>
+            <i class="start"></i>
+            <i class="start"></i>
+          </p>
           <p class="nums">服务过123位客户</p>
         </div>
-        <div class="contact">
-          <div class="online">
-            <i class="c-icon"></i>
-            <p class="info">聊一聊</p>
-          </div>
+        <div class="r-box">
+          <!-- <div class="online">
+            <div class="contact">
+              <i class="c-icon"></i>
+              <p class="info">聊一聊</p>
+            </div>
+            <div class="live">
+              <i class="v-icon"></i>
+              <p class="info">去看看</p>
+            </div>
+          </div> -->
           <div class="offline">
-            <i class="c-icon"></i>
-            <p class="info">留言</p>
+            <div class="contact">
+              <i class="c-icon"></i>
+              <p class="info">留言</p>
+            </div>
+            <div class="live">
+              <i class="v-icon"></i>
+              <p class="info">提醒上线</p>
+            </div>
           </div>
         </div>
-        <div class="live">
+      </div>
+      <div class="item">
+        <div class="avatar">
+          <div class="real-avatar" style="backgroundImage:url(https://ebcnews.s3.amazonaws.com/images/2017/10/16/15081174458687MFnz.jpg)"></div>
+        </div>
+        <div class="msg">
+          <div class="name-box">
+            <p class="name">许志强强强许志强强强许志强强强
+            </p>
+            <span class="status">直播中</span>
+          </div>
+          <p class="starts">
+            <span class="txt">评价</span>
+            <i class="start act"></i>
+            <i class="start"></i>
+            <i class="start"></i>
+            <i class="start"></i>
+            <i class="start"></i>
+          </p>
+          <p class="nums">服务过123位客户</p>
+        </div>
+        <div class="r-box">
           <div class="online">
-            <i class="v-icon"></i>
-            <p class="info">去看看</p>
+            <div class="contact">
+              <i class="c-icon"></i>
+              <p class="info">聊一聊</p>
+            </div>
+            <div class="live">
+              <i class="v-icon"></i>
+              <p class="info">去看看</p>
+            </div>
           </div>
-          <div class="offline">
-            <i class="v-icon"></i>
-            <p class="info">提醒上线</p>
-          </div>
+          <!-- <div class="offline">
+            <div class="contact">
+              <i class="c-icon"></i>
+              <p class="info">留言</p>
+            </div>
+            <div class="live">
+              <i class="v-icon"></i>
+              <p class="info">提醒上线</p>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -40,12 +96,13 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../assets/sass/_mixin.scss';
+  @import "../../assets/sass/_mixin.scss";
   .__consultant__ {
     .list {
       .item {
         display: flex;
         align-items: center;
+        width: 100%;
         padding: rem(36) rem(40) rem(36) rem(30);
         .avatar {
           margin-right: rem(14);
@@ -54,30 +111,31 @@
           border-radius: 50%;
           overflow: hidden;
           box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
-          background: url(https://ebcnews.s3.amazonaws.com/images/2017/10/16/15081174458687MFnz.jpg) no-repeat center;
-          background-size: cover;
+          @extend %background_cover;
           .real-avatar {
             width: 100%;
             height: 100%;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+            @extend %background_cover;
           }
         }
         .msg {
-          .name {
-            color: #303030;
+          .name-box {
             display: flex;
             align-items: center;
+          }
+          .name {
+            color: #303030;
             @include dprFontFix(30);
-            .status {
-              margin-left: rem(10);
-              padding: 0 rem(2);
-              color: #757575;
-              @include dprFontFix(16);
-              border: 1px solid #757575;
-              line-height: rem(22);
-            }
+            @extend %text_overflow;
+            max-width: rem(260);
+          }
+          .status {
+            margin-left: rem(10);
+            padding: 0 rem(2);
+            color: #757575;
+            @include dprFontFix(16);
+            border: 1px solid #757575;
+            line-height: rem(22);
           }
           .starts {
             margin: rem(18) 0;
@@ -95,6 +153,9 @@
               width: rem(22);
               height: rem(20);
               background: red;
+              &.act{
+                background: darkcyan;
+              }
             }
           }
           .nums {
@@ -102,22 +163,72 @@
             @include dprFontFix(20);
           }
         }
+        .r-box {
+          position: absolute;
+          right: rem(40);
+        }
+        .online,.offline{
+          display: flex;
+          align-items: center;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+        .info {
+          @include dprFontFix(26);
+          margin-top: rem(30);
+        }
         .contact {
-          .c-icon {}
-          .online {
-            .info {}
-          }
-          .offline {
-            .info {}
+          width: rem(114);
+          text-align: center;
+          // margin-right: rem(50);
+          .c-icon {
+            margin: auto;
+            display: block;
+            width: rem(46);
+            height: rem(44);
           }
         }
         .live {
-          .v-icon {}
-          .online {
-            .info {}
+          text-align: center;
+          width: rem(114);
+          .v-icon {
+            margin: auto;
+            display: block;
+            width: rem(46);
+            height: rem(44);
           }
-          .offline {
-            .info {}
+        }
+        .online {
+          .c-icon {
+            background: green;
+          }
+          .v-icon {
+            background: green;
+          }
+          .contact {
+            .info {
+              color: #319d64;
+            }
+          }
+          .live {
+            .info {
+              color: #f32b2b;
+            }
+          }
+        }
+        .offline {
+          .c-icon {
+            background: pink;
+          }
+          .v-icon {
+            background: pink;
+          }
+          .contact,
+          .live {
+            .info {
+              color: #79797e;
+            }
           }
         }
       }

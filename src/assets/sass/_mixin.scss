@@ -46,6 +46,12 @@ $baseFontSize: 75 !default;
   white-space: nowrap;
 }
 
+%background_cover{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 @mixin base64bg () {
   background: transparent 0 0 no-repeat;
   background-size: 100% 100%;
