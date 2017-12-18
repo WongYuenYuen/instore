@@ -42,7 +42,7 @@
   </div>
 </template>
 <script>
-import api from './api.js';
+import api from '@assets/js/api/api';
 export default {
   name: 'allShop',
   data() {
