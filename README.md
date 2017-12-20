@@ -1,5 +1,5 @@
 #### 一、当前环境  
-构建工具：是用vue－cli生成webpack打包的，配置支持多页面入口，后续可能加上gulp支持雪碧图等功能  
+构建工具：是用vue－cli生成webpack打包的，配置支持多页面入口
 js：使用vue 2  
 css：使用sass语法，建议每个组件的样式scoped在vue里面    
 ```
@@ -70,7 +70,19 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─shop        一个组建一个文件夹，组建样式、图片等都放在这下面<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─img<br>
 
+雪碧图的使用：
+views和components文件夹里的img文件夹下面建一个叫sprite的文件，将需要合并的图片放到sprite里面即可，会生成雪碧图到img文件夹，和sass文件到views的文件夹下
+
 设计稿资源：
 http://dev.instore.com.cn:9000/svn/h5ui/
 h5ui
 live4Instore
+
+接口api：
+http://www.sosoapi.com/auth/doc/inter/tree/list.htm?projId=8920&docId=8719
+
+代码svn：
+http://dev.instore.com.cn:9000/svn/h5code/branches/yuen/
+
+直播间设计稿：
+http://dev.instore.com.cn:9000/svn/h5code/instore/psd/

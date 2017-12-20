@@ -1,5 +1,6 @@
 <template>
   <div class="__car__">
+    <!-- 车辆基本信息 start-->
     <div class="hd">
       <h1 class="car-name">探界者</h1>
       <p class="car-1">实力中级SUV探界者</p>
@@ -7,7 +8,13 @@
       <p class="msg-1">12月30日前购探界者全系可享价值三万元礼遇！！！</p>
       <p class="msg-2">12月30日前三万元礼遇！！！</p>
     </div>
-    <div class="car-360"></div>
+    <!-- 车辆基本信息 end-->
+    <!-- 360 720视图，引入组件 start-->
+    <div class="car-360">
+      <carViewer></carViewer>
+    </div>
+    <!--  360 720视图，引入组件 end-->
+    <!-- 车辆参数 start-->
     <div class="car-info">
       <p class="car-name">535T领界版</p>
       <div class="change-car">
@@ -38,6 +45,8 @@
       </div>
       <p class="more-consult">更多参数配置请咨询销售</p>
     </div>
+    <!-- 车辆参数 end-->
+    <!-- 优惠信息 start-->
     <div class="coupon">
       <p class="m-title">享优惠</p>
       <div class="coupon-img"></div>
@@ -60,6 +69,8 @@
         </div>
       </div>
     </div>
+    <!-- 优惠信息 end-->
+    <!-- 政策 start-->
     <div class="policy">
       <p class="m-title">金融政策</p>
       <p class="name">星速贷金融专案</p>
@@ -71,6 +82,8 @@
         <li class="info-item">该方案适用于预装安吉星的车型</li>
       </ul>
     </div>
+    <!-- 政策 end-->
+    <!-- 热销车辆，引入组件 start-->
     <div class="hot-car">
       <div class="hot-hd">
         <h3 class="m-title">热销车型</h3>
@@ -78,21 +91,28 @@
       </div>
       <hotCarModule :list="hotCarList" direction="h"></hotCarModule>
     </div>
+    <!-- 热销车辆，引入组件 end-->
+    <!-- 顾问，引入组件 start-->
     <div class="consult">
       <h3 class="m-title">专业销售顾问</h3>
       <consultantModule></consultantModule>
     </div>
+    <!-- 顾问，引入组件 end-->
+
   </div>
 </template>
 
 <script>
   import consultantModule from '@components/consultantModule';
   import hotCarModule from '@components/hotCarModule';
+  import carViewer from '@components/car720';
+  
   export default {
     name: 'car',
     components: {
       consultantModule,
-      hotCarModule
+      hotCarModule,
+      carViewer
     },
     data() {
       return {

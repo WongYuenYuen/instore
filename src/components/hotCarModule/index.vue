@@ -1,3 +1,4 @@
+<!-- 热销车型 -->
 <template>
   <div :class="['__hot-car-list__', direction == 'h' ? 'd-h' : '']">
     <div class="item" v-for="item in list">
