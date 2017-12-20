@@ -1,0 +1,35 @@
+%base_user{
+    background: url(./img/sprite.png) 0 0 no-repeat;
+    background-size: (132rem/75) (123rem/75);
+  }
+@mixin user_close {
+  @extend %base_user;
+  width: rem(35 + 4);
+  height: rem(35 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((-88 + 2) * 1rem/75);
+}@mixin user_collection {
+  @extend %base_user;
+  width: rem(40 + 4);
+  height: rem(49 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin user_consumption {
+  @extend %base_user;
+  width: rem(42 + 4);
+  height: rem(34 + 4);
+  background-position: ((-90 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin user_edit {
+  @extend %base_user;
+  width: rem(26 + 4);
+  height: rem(26 + 4);
+  background-position: ((-45 + 2) * 1rem/75) ((-53 + 2) * 1rem/75);
+}@mixin user_message {
+  @extend %base_user;
+  width: rem(41 + 4);
+  height: rem(31 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((-53 + 2) * 1rem/75);
+}@mixin user_watched {
+  @extend %base_user;
+  width: rem(42 + 4);
+  height: rem(42 + 4);
+  background-position: ((-44 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}

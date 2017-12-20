@@ -62,7 +62,7 @@ for (var page in pages) {
     inject: true,
     chunks: Object.keys(pages).filter(item => {
       return (item == page);
-    })
+    }).concat(['vendor','manifest'])
   }
   // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
   devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));

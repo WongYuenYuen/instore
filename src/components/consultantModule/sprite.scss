@@ -1,0 +1,30 @@
+%base_consultantModule{
+    background: url(./img/sprite.png) 0 0 no-repeat;
+    background-size: (148rem/75) (80rem/75);
+  }
+@mixin consultantModule_start_act {
+  @extend %base_consultantModule;
+  width: rem(22 + 4);
+  height: rem(20 + 4);
+  background-position: ((-100 + 2) * 1rem/75) ((-36 + 2) * 1rem/75);
+}@mixin consultantModule_talk_1 {
+  @extend %base_consultantModule;
+  width: rem(46 + 4);
+  height: rem(44 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin consultantModule_talk {
+  @extend %base_consultantModule;
+  width: rem(46 + 4);
+  height: rem(44 + 4);
+  background-position: ((-50 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin consultantModule_video_1 {
+  @extend %base_consultantModule;
+  width: rem(48 + 4);
+  height: rem(32 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((-48 + 2) * 1rem/75);
+}@mixin consultantModule_video {
+  @extend %base_consultantModule;
+  width: rem(48 + 4);
+  height: rem(32 + 4);
+  background-position: ((-100 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}

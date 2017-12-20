@@ -109,7 +109,7 @@ export default {
     align-items: center;
     .sel-city {
       color: #303030;
-      @include dprFontFix(30);
+      @include font(30);
       &:after {
         position: relative;
         top: rem(-6);
@@ -146,7 +146,7 @@ export default {
         line-height: rem(52);
         border-radius: rem(10);
         text-indent: rem(40);
-        @include dprFontFix(30);
+        @include font(30);
         color: #303030;
       }
     }
@@ -189,7 +189,7 @@ export default {
         }
         .brand-name {
           margin: 0;
-          @include dprFontFix(24);
+          @include font(24);
           line-height: rem(30);
           color: #303030;
           text-align: center;
@@ -203,7 +203,7 @@ export default {
   }
   .shops-list {
     .shop-title {
-      @include dprFontFix(38);
+      @include font(38);
       line-height: rem(44);
       color: #303030;
       font-weight: normal;
@@ -226,13 +226,13 @@ export default {
       }
       .name {
         margin: 0;
-        @include dprFontFix(32);
+        @include font(32);
         line-height: rem(40);
         color: #303030;
       }
       .address {
         margin: 0;
-        @include dprFontFix(26);
+        @include font(26);
         line-height: rem(40);
         color: #757575;
       }

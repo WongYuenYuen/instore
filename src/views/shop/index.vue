@@ -33,14 +33,7 @@
         <h3 class="title">热销车型</h3>
         <p class="more">更多</p>
       </div>
-      <div class="list">
-        <div class="item" v-for="item in hotCarList">
-          <div class="img" :style="{backgroundImage:`url(${item.picurl})`}"></div>
-          <p class="name">{{item.name}}</p>
-          <p class="money">￥{{item.minprice}} 起</p>
-          <p class="coupon">{{item.promotion}}</p>
-        </div>
-      </div>
+      <hotCarModule :list="hotCarList" direction="v"></hotCarModule>
     </div>
     <div class="tabs">
       <div class="tabs-swiper">
@@ -92,7 +85,7 @@
               <div class="item">
                 <div class="b-img" style="backgroundImage:url(http://cw1.tw/CW/images/article/C1416896449951.jpg)">
                   <p class="status s-2">预告</p>
-                  <i class="play-icon"></i>
+                  <i class="play-icon p-2"></i>
                   <p class="pre-time">活动时间：12月28日 16:00-18:00</p>
                   <p class="book-btn">立即预约</p>
                 </div>
@@ -102,7 +95,7 @@
               <div class="item">
                 <div class="b-img" style="backgroundImage:url(http://cw1.tw/CW/images/article/C1416896449951.jpg)">
                   <p class="status s-3">回放</p>
-                  <i class="play-icon"></i>
+                  <i class="play-icon p-3"></i>
                 </div>
                 <h4 class="title">12月30日前购探界者可享价值
                   <strong>三万元</strong>三重礼</h4>
@@ -123,19 +116,21 @@
 <script>
   import api from '@assets/js/api/api';
   import util from '@assets/js/common/util';
+  import hotCarModule from '@components/hotCarModule';
   import consultantModule from '@components/consultantModule';
   let tabMenu = ['找顾问', '享优惠', '活动'];
   export default {
     name: 'shop',
     components: {
-      consultantModule
+      consultantModule,
+      hotCarModule
     },
     data() {
       return {
         requestParam: {
           shopid: util.queryParam('id'),
         },
-        hotCarList:[],
+        hotCarList: [],
         bannerSwiperOption: {
           autoplay: {
             delay: 3000
@@ -190,10 +185,10 @@
         this.getAnchourList();
       },
       getHotCar() {
-        api.getHotCar(this.requestParam).then(data=>{
+        api.getHotCar(this.requestParam).then(data => {
           this.hotCarList = data.data.cars;
           console.log(data)
-        }, err=>{
+        }, err => {
           console.log(err);
         });
       },
@@ -209,6 +204,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/sass/_mixin.scss";
+  @import "./sprite.scss";
   .__shop__ {
     .shop-msg {
       position: relative;
@@ -235,7 +231,7 @@
         justify-content: center;
         align-items: center;
         margin-top: rem(18);
-        @include dprFontFix(34);
+        @include font(34);
         color: #202021;
         text-align: center;
       }
@@ -248,7 +244,7 @@
         background: linear-gradient(145deg, #ffa200 70%, #ff8a00 30%);
         border-radius: rem(6);
         color: #fff;
-        @include dprFontFix(22);
+        @include font(22);
         line-height: rem(30);
         text-align: center;
       }
@@ -260,7 +256,7 @@
         align-items: center;
         padding: rem(5) rem(6);
         color: #f33131;
-        @include dprFontFix(22);
+        @include font(22);
         line-height: rem(30);
         text-align: center;
         border-radius: rem(6);
@@ -269,15 +265,12 @@
           display: inline-block;
           content: "";
           margin-right: rem(4);
-          width: rem(18);
-          height: rem(18);
-          background: black;
-          @extend %background_cover;
+          @include shop_more();
         }
       }
       .address-box {
         position: relative;
-        @include dprFontFix(22);
+        @include font(22);
         color: #79797e;
       }
       .address {
@@ -286,6 +279,15 @@
         text-align: center;
         @extend %text_overflow;
         text-align: center;
+        &:before {
+          position: relative;
+          top: rem(4);
+          margin-right: rem(2);
+          display: inline-block;
+          content: "";
+          margin-right: rem(4);
+          @include shop_address();
+        }
       }
       .distance {
         position: absolute;
@@ -302,65 +304,16 @@
         margin: 0 0 rem(20);
         .title {
           display: inline;
-          @include dprFontFix(34);
+          @include font(34);
           color: #202021;
         }
         .more {
           position: relative;
           display: inline;
           float: right;
-          @include dprFontFix(22);
+          @include font(22);
           color: #79797e;
           line-height: rem(34);
-        }
-      }
-      .list {
-        display: flex;
-        overflow: scroll;
-        .item {
-          width: rem(300);
-          height: rem(370);
-          border: 1px solid #eee;
-          margin-right: rem(17);
-          &:last-child {
-            margin-right: 0;
-          }
-          .img {
-            width: 100%;
-            height: rem(230);
-            @extend %background_cover;
-          }
-          .name,
-          .money,
-          .coupon {
-            margin-left: rem(22);
-          }
-          .name {
-            max-width: rem(260);
-            margin-bottom: rem(10);
-            @extend %text_overflow;
-            @include dprFontFix(30);
-            color: #202021;
-          }
-          .money {
-            margin-bottom: rem(8);
-            @include dprFontFix(26);
-            color: #79797e;
-          }
-          .coupon {
-            width: rem(260);
-            @include dprFontFix(22);
-            @extend %text_overflow;
-            color: #79797e;
-            &:before {
-              padding: rem(2);
-              margin-right: rem(8);
-              content: "促";
-              background: #f32b2b;
-              @include dprFontFix(18);
-              color: #fff;
-            }
-          }
         }
       }
     }
@@ -394,7 +347,7 @@
               width: rem(124);
               line-height: rem(46);
               border-bottom-right-radius: rem(8);
-              @include dprFontFix(20);
+              @include font(20);
               color: #fff;
               text-align: center;
             }
@@ -410,7 +363,7 @@
             margin-bottom: rem(13);
             max-width: 100%;
             color: #202021;
-            @include dprFontFix(30);
+            @include font(30);
             @extend %text_overflow;
             font-weight: normal;
           }
@@ -418,7 +371,7 @@
             margin-right: rem(24);
             display: inline;
             color: #303030;
-            @include dprFontFix(22);
+            @include font(22);
           }
         }
       }
@@ -448,22 +401,36 @@
               z-index: 1;
             }
             .live-icon {
-              position: relative;
+              @extend %center;
+              @include shop_trailer();
               z-index: 3;
             }
             .like-icon {
-              position: relative;
+              position: absolute;
+              display: block;
+              right: rem(24);
+              bottom: rem(6);
+              @include shop_likes();
               z-index: 3;
             }
             .play-icon {
               position: relative;
+              display: block;
+              margin: auto;
+              @include shop_play();
               z-index: 3;
+              &.p-2 {
+                margin-top: rem(-20);
+              }
+              &.p-3 {
+                @extend %center;
+              }
             }
             .pre-time {
               position: relative;
               margin: rem(15) auto rem(26);
               color: #fff;
-              @include dprFontFix(22);
+              @include font(22);
               text-align: center;
               z-index: 3;
             }
@@ -475,7 +442,7 @@
               background: #f32b2b;
               border-radius: rem(6);
               color: #fff;
-              @include dprFontFix(26);
+              @include font(26);
               text-align: center;
               z-index: 3;
             }
@@ -485,7 +452,7 @@
               width: rem(100);
               line-height: rem(40);
               border-radius: 0 rem(20) rem(20) 0;
-              @include dprFontFix(20);
+              @include font(20);
               color: #fff;
               text-align: center;
               z-index: 3;
@@ -502,7 +469,7 @@
             margin-bottom: rem(13);
             max-width: 100%;
             color: #202021;
-            @include dprFontFix(30);
+            @include font(30);
             @extend %text_overflow;
             font-weight: normal;
             strong {
@@ -517,6 +484,10 @@
 
 <style lang="scss">
   @import "../../assets/sass/_mixin.scss";
+  @import "./sprite.scss";
+  body{
+    background: #f5f5f5;
+  }
   .banner-swiper {
     padding: rem(24) rem(30);
     width: rem(690);
@@ -559,15 +530,16 @@
       align-items: center;
     }
     .coupon-title {
-      width: rem(114);
-      height: rem(28);
-      background: pink;
+      // width: rem(114);
+      // height: rem(28);
+      // background: pink;
+      @include shop_t_1();
     }
     .tips {
       margin-right: rem(10);
       padding: 0 rem(4);
       color: #f33131;
-      @include dprFontFix(20);
+      @include font(20);
       border: 1px solid #f33131;
       line-height: rem(25);
       border-radius: rem(4);
@@ -575,7 +547,7 @@
     .msg {
       width: rem(430);
       color: #202021;
-      @include dprFontFix(26);
+      @include font(26);
       @extend %text_overflow;
     }
   }
@@ -599,7 +571,7 @@
         background: transparent;
         display: block;
         border-radius: 100%;
-        @include dprFontFix(30);
+        @include font(30);
         line-height: rem(102);
         color: #202021;
         opacity: 1;

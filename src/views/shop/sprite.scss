@@ -1,4 +1,40 @@
 %base_shop{
     background: url(./img/sprite.png) 0 0 no-repeat;
-    background-size: (0rem/75) (0rem/75);
+    background-size: (247rem/75) (226rem/75);
   }
+@mixin shop_address {
+  @extend %base_shop;
+  width: rem(16 + 4);
+  height: rem(20 + 4);
+  background-position: ((-159 + 2) * 1rem/75) ((-114 + 2) * 1rem/75);
+}@mixin shop_likes {
+  @extend %base_shop;
+  width: rem(63 + 4);
+  height: rem(194 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin shop_more {
+  @extend %base_shop;
+  width: rem(18 + 4);
+  height: rem(18 + 4);
+  background-position: ((-159 + 2) * 1rem/75) ((-92 + 2) * 1rem/75);
+}@mixin shop_play {
+  @extend %base_shop;
+  width: rem(88 + 4);
+  height: rem(88 + 4);
+  background-position: ((-67 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin shop_t_1 {
+  @extend %base_shop;
+  width: rem(114 + 4);
+  height: rem(28 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((-198 + 2) * 1rem/75);
+}@mixin shop_trailer {
+  @extend %base_shop;
+  width: rem(88 + 4);
+  height: rem(88 + 4);
+  background-position: ((-67 + 2) * 1rem/75) ((-92 + 2) * 1rem/75);
+}@mixin shop_user {
+  @extend %base_shop;
+  width: rem(88 + 4);
+  height: rem(88 + 4);
+  background-position: ((-159 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}

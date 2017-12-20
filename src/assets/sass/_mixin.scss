@@ -4,7 +4,7 @@ $baseFontSize: 75 !default;
   @return $num / $baseFontSize * 1rem;
 }
 
-@mixin dprFontFix($fontSize2x) {
+@mixin font($fontSize2x) {
   // Psd尺寸750
   $fontSize: $fontSize2x/2;
   @if (unitless($fontSize)) {
@@ -46,10 +46,20 @@ $baseFontSize: 75 !default;
   white-space: nowrap;
 }
 
-%background_cover{
+%background_cover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+%center {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 @mixin base64bg () {
@@ -79,4 +89,15 @@ $baseFontSize: 75 !default;
 
 %clearfix {
   @include clearfix();
+}
+
+@mixin red_bg($txt) {
+  &:before {
+    padding: rem(2);
+    margin-right: rem(8);
+    content: $txt;
+    background: #f32b2b;
+    @include font(18);
+    color: #fff;
+  }
 }

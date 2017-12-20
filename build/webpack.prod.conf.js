@@ -134,7 +134,7 @@ for (var page in pages) {
     inject: true,
     chunks: Object.keys(pages).filter(item => {
       return (item == page)
-    })
+    }).concat(['vendor','manifest'])
   }
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
 }

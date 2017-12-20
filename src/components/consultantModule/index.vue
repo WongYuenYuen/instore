@@ -14,8 +14,8 @@
           <p class="starts">
             <span class="txt">评价</span>
             <i class="start act"></i>
-            <i class="start"></i>
-            <i class="start"></i>
+            <i class="start act"></i>
+            <i class="start act"></i>
             <i class="start"></i>
             <i class="start"></i>
           </p>
@@ -23,15 +23,15 @@
         </div>
         <div class="r-box">
           <!-- <div class="online">
-            <div class="contact">
-              <i class="c-icon"></i>
-              <p class="info">聊一聊</p>
-            </div>
-            <div class="live">
-              <i class="v-icon"></i>
-              <p class="info">去看看</p>
-            </div>
-          </div> -->
+                <div class="contact">
+                  <i class="c-icon"></i>
+                  <p class="info">聊一聊</p>
+                </div>
+                <div class="live">
+                  <i class="v-icon"></i>
+                  <p class="info">去看看</p>
+                </div>
+              </div> -->
           <div class="offline">
             <div class="contact">
               <i class="c-icon"></i>
@@ -76,15 +76,15 @@
             </div>
           </div>
           <!-- <div class="offline">
-            <div class="contact">
-              <i class="c-icon"></i>
-              <p class="info">留言</p>
-            </div>
-            <div class="live">
-              <i class="v-icon"></i>
-              <p class="info">提醒上线</p>
-            </div>
-          </div> -->
+                <div class="contact">
+                  <i class="c-icon"></i>
+                  <p class="info">留言</p>
+                </div>
+                <div class="live">
+                  <i class="v-icon"></i>
+                  <p class="info">提醒上线</p>
+                </div>
+              </div> -->
         </div>
       </div>
     </div>
@@ -97,13 +97,14 @@
 
 <style lang="scss" scoped>
   @import "../../assets/sass/_mixin.scss";
+  @import "./sprite.scss";
   .__consultant__ {
     .list {
       .item {
         display: flex;
         align-items: center;
         width: 100%;
-        padding: rem(36) rem(40) rem(36) rem(30);
+        padding: rem(36) rem(0) rem(36) rem(0);
         .avatar {
           margin-right: rem(14);
           width: rem(100);
@@ -125,7 +126,7 @@
           }
           .name {
             color: #303030;
-            @include dprFontFix(30);
+            @include font(30);
             @extend %text_overflow;
             max-width: rem(260);
           }
@@ -133,7 +134,7 @@
             margin-left: rem(10);
             padding: 0 rem(2);
             color: #757575;
-            @include dprFontFix(16);
+            @include font(16);
             border: 1px solid #757575;
             line-height: rem(22);
           }
@@ -145,29 +146,28 @@
             .txt {
               margin-right: rem(12);
               color: #79797e;
-              @include dprFontFix(20);
+              @include font(20);
             }
             .start {
               margin: 0 rem(2);
               display: block;
-              width: rem(22);
-              height: rem(20);
-              background: red;
-              &.act{
-                background: darkcyan;
+              @include consultantModule_start_act();
+              &.act {
+                @include consultantModule_start_act();
               }
             }
           }
           .nums {
             color: #79797e;
-            @include dprFontFix(20);
+            @include font(20);
           }
         }
         .r-box {
           position: absolute;
           right: rem(40);
         }
-        .online,.offline{
+        .online,
+        .offline {
           display: flex;
           align-items: center;
           top: 0;
@@ -175,18 +175,15 @@
           margin: auto;
         }
         .info {
-          @include dprFontFix(26);
+          @include font(26);
           margin-top: rem(30);
         }
         .contact {
           width: rem(114);
           text-align: center;
-          // margin-right: rem(50);
           .c-icon {
             margin: auto;
             display: block;
-            width: rem(46);
-            height: rem(44);
           }
         }
         .live {
@@ -195,16 +192,14 @@
           .v-icon {
             margin: auto;
             display: block;
-            width: rem(46);
-            height: rem(44);
           }
         }
         .online {
           .c-icon {
-            background: green;
+            @include consultantModule_talk();
           }
           .v-icon {
-            background: green;
+            @include consultantModule_video();
           }
           .contact {
             .info {
@@ -219,10 +214,10 @@
         }
         .offline {
           .c-icon {
-            background: pink;
+            @include consultantModule_talk_1();
           }
           .v-icon {
-            background: pink;
+            @include consultantModule_video_1();
           }
           .contact,
           .live {

@@ -1,0 +1,25 @@
+%base_car{
+    background: url(./img/sprite.png) 0 0 no-repeat;
+    background-size: (158rem/75) (124rem/75);
+  }
+@mixin car_ask {
+  @extend %base_car;
+  width: rem(124 + 4);
+  height: rem(124 + 4);
+  background-position: ((0 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}@mixin car_more {
+  @extend %base_car;
+  width: rem(21 + 4);
+  height: rem(12 + 4);
+  background-position: ((-128 + 2) * 1rem/75) ((-34 + 2) * 1rem/75);
+}@mixin car_param_act {
+  @extend %base_car;
+  width: rem(30 + 4);
+  height: rem(6 + 4);
+  background-position: ((-128 + 2) * 1rem/75) ((-50 + 2) * 1rem/75);
+}@mixin car_param_nor {
+  @extend %base_car;
+  width: rem(30 + 4);
+  height: rem(30 + 4);
+  background-position: ((-128 + 2) * 1rem/75) ((0 + 2) * 1rem/75);
+}

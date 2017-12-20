@@ -32,8 +32,14 @@ function getSprites(globPath) {
 
 exports.spriteConfig = function (webpackConfig) {
   var sprites = getSprites('./src/views/**/sprite');
+  sprites = sprites.concat(getSprites('./src/components/**/sprite'));
   for (let i = 0; i < sprites.length; i++) {
-    let name = sprites[i].split('views/')[1].split('/')[0];
+    let name = '';
+    if (sprites[i].indexOf('views/') != -1) {
+      name = sprites[i].split('views/')[1].split('/')[0];
+    } else if (sprites[i].indexOf('components/') != -1) {
+      name = sprites[i].split('components/')[1].split('/')[0];
+    }
     let disImgPath = sprites[i].replace('/sprite', '');
     let disScssPath = sprites[i].replace('/img/sprite', '');
     let conf = {
